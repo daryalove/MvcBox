@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная - SmartBox</title>
+    <!-- google fonts -->
+    <!-- Css link -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.css"/>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body style="background-image: url(back.jpg);">
+    <header id="navigation" class="border-bottom box-shadow">
+
+        @*<div class="navbar-header">
+                         responsive nav button
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+            </button>
+                         /responsive nav button
+                         logo
+                         /logo
+                    </div>*@
+
+        <!-- main nav -->
+        <nav class="navbar-expand-lg navbar-right" role="navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a asp-controller="Home" asp-action="Index"><img src="~/img/log.jpg" class="img-fluid" height="40" width="164" alt=""></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul id="nav" class="nav navbar-nav menu">
+                        <li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Index">Привет, @User.Identity.Name!</a></li>
+                        <li class="nav-item"><a class="nav-link active" asp-controller="Home" asp-action="Privacy">Политика</a></li>
+                        <li class="nav-item">
+                            <form class="form-inline" method="post" asp-controller="Account" asp-action="LogOff">
+                                <button type="submit" class="btn btn-success btn-sm active">Выход</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- /main nav -->
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="col-md-12">
+                <a asp-controller="Home" asp-action="Index"><img src="~/img/log.jpg" alt=""></a>
+                <p>Все права защищены © 2020</p>
+            </div>
+        </div>
+    </footer>
+
+
+    @RenderSection("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h3>My Google Maps Demo</h3>
+<br />
+<!--The div element for the map -->
+<div id="map">
+
+</div>
+<!-- скипты загружаются поочередно - сначала основной с jquery, потом те, что его используют и все остальное-->
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/pages/UserPage.js"></script>
+
+<script>
+    /*этот метод говорит о том, что страница подгрузилась и все скрипты подгружены, можно загружать данные */
+    /*вообще метод можно попробовать все же убрать в js*/
+    $(document).ready(function () {
+        initMap();
+    });
+</script>
+
+<br />
+<h3 align="center">Данные контейнера</h3>
+<br />
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="name">Имя</label>
+        <input type="text" class="form-control" id="name" placeholder="Контейнер1">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="state">Состояние</label>
+        <input type="text" class="form-control" id="state" placeholder="Состояние">
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="isOpenedBox">Положение</label>
+        <input type="text" class="form-control" id="isOpenedBox" placeholder="Закрыт/Раскрыт">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="isOpenedDoor">Дверь</label>
+        <input type="text" class="form-control" id="isOpenedDoor" placeholder="Заблокирована/Разблокирована">
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="code">PIN-код для доступа</label>
+        <input type="text" class="form-control" id="code" placeholder="1234">
+    </div>
+    <div class="form-group col-md-4">
+        <label for="weight">Вес груза</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="weight" placeholder="3000.0">
+            <div class="input-group-append">
+                <span class="input-group-text">кг</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="temp">Температура</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="temp" placeholder="28.0">
+            <div class="input-group-append">
+                <span class="input-group-text">°C</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group col-md-4">
+        <label for="light">Датчик света</label>
+        <input type="number" class="form-control" id="light" placeholder="123">
+    </div>
+    <div class="form-group col-mb-3">
+        <label for="batteryPower">Уровень заряда аккумулятора</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="batteryPower" placeholder="50">
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3">
+        <label for="wetness">Влажность</label>
+        <div class="input-group">
+            <input type="number" class="form-control" id="wetness" placeholder="70">
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC56KdWPAs6stFdkXRC1xE0Es4hKmUaVoE&callback=initMap">
+</script>
+
+
