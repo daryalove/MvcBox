@@ -82,7 +82,7 @@ namespace Entities.Repository
             DataContent.Status = ResponseResult.Error;
             return DataContent;
         }
-
+        
         /// <summary>
         /// Получение данных контейнера
         /// </summary>
