@@ -144,6 +144,15 @@ namespace Entities.Repository
                 return ContentData;
             }
 
+            box.BatteryPower = model.BatteryPower;
+            box.Code = model.Code;
+            box.IsOpenedBox = model.IsOpenedBox;
+            box.IsOpenedDoor = model.IsOpenedDoor;
+            box.Light = model.Light;
+            box.Temperature = model.Temperature;
+            box.Weight = model.Weight;
+            box.Wetness = model.Wetness;
+
             _boxContext.Update(box);
             await _boxContext.SaveChangesAsync();
             ContentData.Message = "Успешно.";

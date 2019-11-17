@@ -47,10 +47,10 @@
       <publishTime>09/20/2019 22:26:20</publishTime>
     </File>
     <File Include="Entities.dll">
-      <publishTime>11/08/2019 08:22:04</publishTime>
+      <publishTime>11/17/2019 13:06:58</publishTime>
     </File>
     <File Include="Entities.pdb">
-      <publishTime>11/08/2019 08:22:04</publishTime>
+      <publishTime>11/17/2019 13:06:58</publishTime>
     </File>
     <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>08/14/2019 23:21:24</publishTime>
@@ -173,25 +173,25 @@
       <publishTime>09/20/2019 22:25:54</publishTime>
     </File>
     <File Include="MvcBox.deps.json">
-      <publishTime>11/12/2019 08:33:39</publishTime>
+      <publishTime>11/17/2019 17:14:02</publishTime>
     </File>
     <File Include="MvcBox.dll">
-      <publishTime>11/12/2019 08:32:59</publishTime>
+      <publishTime>11/17/2019 17:11:11</publishTime>
     </File>
     <File Include="MvcBox.exe">
-      <publishTime>11/12/2019 08:33:00</publishTime>
+      <publishTime>11/17/2019 17:11:11</publishTime>
     </File>
     <File Include="MvcBox.pdb">
-      <publishTime>11/12/2019 08:32:59</publishTime>
+      <publishTime>11/17/2019 17:11:11</publishTime>
     </File>
     <File Include="MvcBox.runtimeconfig.json">
       <publishTime>10/23/2019 14:05:44</publishTime>
     </File>
     <File Include="MvcBox.Views.dll">
-      <publishTime>11/12/2019 08:33:22</publishTime>
+      <publishTime>11/17/2019 17:11:14</publishTime>
     </File>
     <File Include="MvcBox.Views.pdb">
-      <publishTime>11/12/2019 08:33:22</publishTime>
+      <publishTime>11/17/2019 17:11:14</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
       <publishTime>03/24/2018 17:44:14</publishTime>
@@ -296,7 +296,7 @@
       <publishTime>08/14/2019 23:20:54</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/12/2019 08:33:39</publishTime>
+      <publishTime>11/17/2019 17:14:02</publishTime>
     </File>
     <File Include="wwwroot/css/animate.min.css">
       <publishTime>11/20/2018 14:09:02</publishTime>
@@ -329,7 +329,7 @@
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
-      <publishTime>11/05/2019 10:45:44</publishTime>
+      <publishTime>11/15/2019 01:07:08</publishTime>
     </File>
     <File Include="wwwroot/css/style.css">
       <publishTime>11/05/2019 10:41:16</publishTime>
@@ -339,6 +339,9 @@
     </File>
     <File Include="wwwroot/download/counter-bg.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/download/GeoGeometry.GeoGeometry.apk">
+      <publishTime>11/17/2019 16:39:05</publishTime>
     </File>
     <File Include="wwwroot/favicon.ico">
       <publishTime>10/18/2019 14:46:53</publishTime>
@@ -638,7 +641,7 @@
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
     <File Include="wwwroot/js/pages/UserPage.js">
-      <publishTime>11/09/2019 15:48:25</publishTime>
+      <publishTime>11/13/2019 23:38:31</publishTime>
     </File>
     <File Include="wwwroot/js/pro-license.pdf">
       <publishTime>11/20/2018 14:09:02</publishTime>
