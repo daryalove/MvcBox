@@ -7,7 +7,7 @@ namespace Entities.ViewModels.ContainerViewModels
 {
     public class BoxLocation
     {
-        public Guid SmartrBoxId { get; set; }
+        public Guid SmartBoxId { get; set; }
         public string Name { get; set; }
         public bool IsOpenedBox { get; set; }
         public ContainerState BoxState { get; set; }

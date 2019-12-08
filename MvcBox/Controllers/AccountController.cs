@@ -55,7 +55,7 @@ namespace MvcBox.Controllers
                     }
                 }
             }
-            return View(model);
+            return BadRequest(ModelState);
         }
 
         [HttpGet]
@@ -89,7 +89,7 @@ namespace MvcBox.Controllers
                     ModelState.AddModelError("", "Неправильный логин и (или) пароль");
                 }
             }
-            return View(model);
+            return BadRequest(ModelState);
         }
 
 
@@ -101,6 +101,11 @@ namespace MvcBox.Controllers
             //удаляем аутентификационные куки
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Auth()
+        {
+            return View();
         }
 
         //[HttpPost]

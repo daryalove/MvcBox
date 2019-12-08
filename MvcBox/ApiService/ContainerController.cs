@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Entities.Models;
+using Entities.ViewModels.OrderViewModels;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace MvcBox.ApiService
 {
@@ -35,20 +37,57 @@ namespace MvcBox.ApiService
 
         [HttpPut]
         [Route("EditBox")]
-        public async Task<ServiceResponseObject<BaseResponseObject>> EditBox([FromBody]SmartBox model)
+        public async Task<ServiceResponseObject<BaseResponseObject>> EditBox(EditBoxViewModel model)
         {
-            ContainerMethods BoxData = new ContainerMethods(_boxContext);
-            var Result = await BoxData.EditBox(model);
-            return Result;
+            if (ModelState.IsValid)
+            {
+                ContainerMethods BoxData = new ContainerMethods(_boxContext);
+                var Result = await BoxData.EditBox(model);
+                return Result;
+            }
+            ServiceResponseObject<BaseResponseObject> response = new ServiceResponseObject<BaseResponseObject>();
+            response.Status = ResponseResult.Error;
+     
+            List<string> errors = ModelState.Values.Aggregate(
+               new List<string>(),
+               (a, c) =>
+               {
+                   a.AddRange(c.Errors.Select(r => r.ErrorMessage));
+                   return a;
+               },
+               a => a
+            );
+
+            response.Message = errors[0];
+            return response;
         }
 
         [HttpPost]
         [Route("SetContainerLocation")]
-        public async Task<ServiceResponseObject<BaseResponseObject>> SetContainerLocation(Guid id, double lon1, double lat1, double signal, DateTime date)
+        public async Task<ServiceResponseObject<BaseResponseObject>> SetContainerLocation(LocationViewModel model)
         {
-            ContainerMethods BoxData = new ContainerMethods(_boxContext);
-            var Result = await BoxData.SetContainerLocation(id, lon1, lat1, signal, date);
-            return Result;
+            if (ModelState.IsValid)
+            {
+                ContainerMethods BoxData = new ContainerMethods(_boxContext);
+                var Result = await BoxData.SetContainerLocation(model);
+                return Result;
+            }
+
+            ServiceResponseObject<BaseResponseObject> response = new ServiceResponseObject<BaseResponseObject>();
+            response.Status = ResponseResult.Error;
+
+            List<string> errors = ModelState.Values.Aggregate(
+               new List<string>(),
+               (a, c) =>
+               {
+                   a.AddRange(c.Errors.Select(r => r.ErrorMessage));
+                   return a;
+               },
+               a => a
+            );
+
+            response.Message = errors[0];
+            return response;
         }
 
         [HttpGet]
@@ -79,6 +118,41 @@ namespace MvcBox.ApiService
             var boxes = data.ResponseData.Objects;
             result = new JsonResult(boxes);
             return result;
+        }
+
+        [HttpGet]
+        [Route("PriceComputation")]
+        public ServiceResponseObject<ComputationResponse> PriceComputation(PriceComputationViewModel model)
+        {
+            ServiceResponseObject<ComputationResponse> response = new ServiceResponseObject<ComputationResponse>();
+            if (model.CargeType == "Выбор" || model.DangerClassType == "Выбор")
+            {
+                ModelState.AddModelError(string.Empty, "Укажите характер груза или класс опасности");
+            }
+
+            if (ModelState.IsValid)
+            {
+                OrderMethods BoxData = new OrderMethods();
+                var price = BoxData.PriceComputation(model);
+                response.Message = "Успешно!";
+                response.ResponseData = new ComputationResponse { Price = price };
+                response.Status = ResponseResult.OK;
+                return response;
+            }
+            response.Status = ResponseResult.Error;
+            List<string> errors = ModelState.Values.Aggregate(
+               new List<string>(),
+               (a, c) =>
+               {
+                   a.AddRange(c.Errors.Select(r => r.ErrorMessage));
+                   return a;
+               },
+               a => a
+            );
+
+            response.ResponseData = new ComputationResponse();
+            response.Message = errors[0];
+            return response;
         }
 
         // GET: api/Container

@@ -43,6 +43,14 @@ namespace MvcBox
             services.Configure<IdentityOptions>(options =>
             {
                 options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
+                // Default Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 1;
             }
             );
 
@@ -98,6 +106,15 @@ namespace MvcBox
             app.UseCors(builder => builder.WithOrigins("https://localhost:44396"));
 
             app.UseDefaultFiles();
+
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+            //    RequestPath = "/wwwroot/css",
+            //    ServeUnknownFileTypes = true
+            //});
+
             app.UseStaticFiles(new StaticFileOptions
             {
                 ServeUnknownFileTypes = true
@@ -115,12 +132,14 @@ namespace MvcBox
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            
+
             app.UseFileServer(new FileServerOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-            Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "download")),
-                RequestPath = "/download",
-                EnableDirectoryBrowsing = true
+                {
+                    FileProvider = new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "download")),
+                    RequestPath = "/download",
+                    EnableDirectoryBrowsing = true
             });
 
             CreateUserRoles(services).Wait();

@@ -40,7 +40,13 @@ namespace Entities.Repository
                 DataContent.Status = ResponseResult.Error;
                 return DataContent;
             }
-            
+
+            if (model == null)
+            {
+                DataContent.Message = "Не указаны данные для пользователя.";
+                DataContent.Status = ResponseResult.Error;
+                return DataContent;
+            }
 
             User user = new User
             {

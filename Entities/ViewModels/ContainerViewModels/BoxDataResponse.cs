@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Entities.Models.SmartBox;
 
 namespace Entities.ViewModels.ContainerViewModels
 {
@@ -8,6 +9,7 @@ namespace Entities.ViewModels.ContainerViewModels
     {
         public Guid Id { get; set; }
         public bool IsOpenedBox { get; set; }
+        public ContainerState BoxState { get; set; }
         public bool IsOpenedDoor { get; set; }
         public double Weight { get; set; }
         public int Light { get; set; }

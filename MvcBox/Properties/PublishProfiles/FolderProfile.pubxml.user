@@ -14,7 +14,7 @@
       <publishTime>10/18/2019 14:46:53</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>10/18/2019 15:36:23</publishTime>
+      <publishTime>11/19/2019 11:24:22</publishTime>
     </File>
     <File Include="appsettings.production.json">
       <publishTime>11/04/2019 12:12:52</publishTime>
@@ -47,10 +47,10 @@
       <publishTime>09/20/2019 22:26:20</publishTime>
     </File>
     <File Include="Entities.dll">
-      <publishTime>11/17/2019 13:06:58</publishTime>
+      <publishTime>12/07/2019 10:01:47</publishTime>
     </File>
     <File Include="Entities.pdb">
-      <publishTime>11/17/2019 13:06:58</publishTime>
+      <publishTime>12/07/2019 10:01:47</publishTime>
     </File>
     <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>08/14/2019 23:21:24</publishTime>
@@ -173,25 +173,25 @@
       <publishTime>09/20/2019 22:25:54</publishTime>
     </File>
     <File Include="MvcBox.deps.json">
-      <publishTime>11/17/2019 17:14:02</publishTime>
+      <publishTime>12/08/2019 15:31:17</publishTime>
     </File>
     <File Include="MvcBox.dll">
-      <publishTime>11/17/2019 17:11:11</publishTime>
+      <publishTime>12/08/2019 15:15:45</publishTime>
     </File>
     <File Include="MvcBox.exe">
-      <publishTime>11/17/2019 17:11:11</publishTime>
+      <publishTime>12/08/2019 15:15:45</publishTime>
     </File>
     <File Include="MvcBox.pdb">
-      <publishTime>11/17/2019 17:11:11</publishTime>
+      <publishTime>12/08/2019 15:15:45</publishTime>
     </File>
     <File Include="MvcBox.runtimeconfig.json">
-      <publishTime>10/23/2019 14:05:44</publishTime>
+      <publishTime>12/08/2019 15:16:17</publishTime>
     </File>
     <File Include="MvcBox.Views.dll">
-      <publishTime>11/17/2019 17:11:14</publishTime>
+      <publishTime>12/08/2019 15:16:15</publishTime>
     </File>
     <File Include="MvcBox.Views.pdb">
-      <publishTime>11/17/2019 17:11:14</publishTime>
+      <publishTime>12/08/2019 15:16:15</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
       <publishTime>03/24/2018 17:44:14</publishTime>
@@ -296,13 +296,40 @@
       <publishTime>08/14/2019 23:20:54</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>11/17/2019 17:14:02</publishTime>
+      <publishTime>12/08/2019 15:31:17</publishTime>
+    </File>
+    <File Include="wwwroot/Auth.html">
+      <publishTime>11/29/2019 11:18:54</publishTime>
+    </File>
+    <File Include="wwwroot/Calculator.html">
+      <publishTime>12/03/2019 11:46:50</publishTime>
     </File>
     <File Include="wwwroot/css/animate.min.css">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
     <File Include="wwwroot/css/bootstrap.min.css">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/index.css">
+      <publishTime>11/29/2019 11:16:47</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/nomq_index.css">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/nomq__________-__________.css">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/nomq____________.css">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/site_global.css">
+      <publishTime>12/08/2019 14:04:30</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/_________-__________.css">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/css/container/___________.css">
+      <publishTime>11/29/2019 10:04:03</publishTime>
     </File>
     <File Include="wwwroot/css/font-awesome.min.css">
       <publishTime>11/20/2018 14:09:02</publishTime>
@@ -339,6 +366,9 @@
     </File>
     <File Include="wwwroot/download/counter-bg.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/download/GeoGeometry.GeoGeometry-Signed.apk">
+      <publishTime>11/18/2019 01:17:36</publishTime>
     </File>
     <File Include="wwwroot/download/GeoGeometry.GeoGeometry.apk">
       <publishTime>11/17/2019 16:39:05</publishTime>
@@ -459,6 +489,51 @@
     </File>
     <File Include="wwwroot/img/contact-slider-img.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/743c7dbdaf900c32037386a20d052640.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/78dcc65e67962d3d4f4e4d535793e48b.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/blank.gif">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/bt_select.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/knopka-rasschitat.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/konteiner4.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/optovaya_torgovlya_tovarami_v_donecke_dnr_luganske_lnr_donbasse_0.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/ваыпвап.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/енгекг.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/паропаро.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/пглпрлпр.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/цукеуекуе.png">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/ывап.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/ывапвапв.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/ывапывап.jpg">
+      <publishTime>11/18/2019 16:18:56</publishTime>
     </File>
     <File Include="wwwroot/img/counter-bg.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
@@ -601,6 +676,42 @@
     <File Include="wwwroot/js/bootstrap.min.js">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/js/container/jquery-1.8.3.min.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/jquery.museoverlay.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/jquery.museresponsive.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/jquery.watch.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/museconfig.js">
+      <publishTime>12/04/2019 18:38:29</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/museutils.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/musewpslideshow.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/require.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/touchswipe.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/util.js">
+      <publishTime>09/08/2011 02:37:10</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/webpro.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
+    <File Include="wwwroot/js/container/whatinput.js">
+      <publishTime>11/18/2019 16:18:56</publishTime>
+    </File>
     <File Include="wwwroot/js/free-license.pdf">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
@@ -640,8 +751,14 @@
     <File Include="wwwroot/js/owl.carousel.min.js">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/js/pages/AuthPage.js">
+      <publishTime>12/07/2019 22:37:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/pages/CalculatorPage.js">
+      <publishTime>12/08/2019 15:11:28</publishTime>
+    </File>
     <File Include="wwwroot/js/pages/UserPage.js">
-      <publishTime>11/13/2019 23:38:31</publishTime>
+      <publishTime>12/04/2019 20:07:52</publishTime>
     </File>
     <File Include="wwwroot/js/pro-license.pdf">
       <publishTime>11/20/2018 14:09:02</publishTime>
@@ -654,6 +771,9 @@
     </File>
     <File Include="wwwroot/js/wow.min.js">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/LayouteBox.html">
+      <publishTime>11/29/2019 11:09:58</publishTime>
     </File>
     <File Include="wwwroot/lib/4.3.1/bootstrap-grid.css">
       <publishTime>02/13/2019 17:47:50</publishTime>
@@ -787,8 +907,23 @@
     <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
       <publishTime>10/18/2019 14:46:53</publishTime>
     </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.timer.js">
+      <publishTime>09/11/2019 13:22:06</publishTime>
+    </File>
     <File Include="wwwroot/lib/jquery/LICENSE.txt">
       <publishTime>10/18/2019 14:46:53</publishTime>
+    </File>
+    <File Include="wwwroot/Mobile.html">
+      <publishTime>11/29/2019 11:13:18</publishTime>
+    </File>
+    <File Include="wwwroot/muse_manifest.xml">
+      <publishTime>11/20/2019 20:44:07</publishTime>
+    </File>
+    <File Include="wwwroot/Register.html">
+      <publishTime>11/30/2019 10:23:34</publishTime>
+    </File>
+    <File Include="wwwroot/sitemap.xml">
+      <publishTime>11/20/2019 20:41:51</publishTime>
     </File>
     <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>08/14/2019 23:21:24</publishTime>

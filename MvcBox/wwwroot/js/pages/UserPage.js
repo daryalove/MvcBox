@@ -1,6 +1,23 @@
 ﻿var map;
-// Initialize and add the map
+var markersArray = [];
 
+// Initialize and add the map
+function clearMarkers() {
+    for (var i = 0; i < markersArray.length; i++) {
+        markersArray[i].setMap(null);
+    }
+    markersArray = [];
+}
+function startTimer(createdMap) {
+    //внутри этой функции будет идти обработка
+    let lastTimer = $.timer(function () {
+        loadData(createdMap);
+    });
+
+    lastTimer.set({
+        time: 10000, autostart: true
+    });
+}
 function loadData(map) {
     //запрос стартует по факту вызова, но
     $.ajax({
@@ -23,9 +40,12 @@ function initMap() {
         center: new google.maps.LatLng(2.8, -187.3),
         mapTypeId: 'terrain'
     });
-    loadData(map);
+    //теперь запускается таймер
+    startTimer(map);
+
 }
 function setMarkers(map, objects) {
+    clearMarkers();
     //используй let вместо var, это объявление локалной переменной
     for (let i = 0; i < objects.length; i++) {
         let object = objects[i];
@@ -38,7 +58,7 @@ function setMarkers(map, objects) {
         let boxState = (object.boxState == "1") ? "на складе" : (object.boxState == "2") ? "на автомобиле" : (object.boxState == "3") ?
             "выгружен у грузоотправителя" : (object.boxState == "4") ? "разгружен у грузополучателя" : "не указано";
         let code = (object.code == null) ? "не указан" : object.code;
-        let isOpenedBox = (object.isOpenedBox == false)?"закрыт":"раскрыт";
+        let isOpenedBox = (object.isOpenedBox == false) ? "закрыт" : "раскрыт";
         let light = object.light;
         let temperature = object.temperature;
         let weight = object.weight;
@@ -49,7 +69,7 @@ function setMarkers(map, objects) {
             map: map,
             title: 'Click to zoom',
         });
-
+        markersArray.push(marker);
         marker.addListener('click', function () {
             $("#name").val(boxName);
             $("#state").val(boxState);

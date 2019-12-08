@@ -47,15 +47,15 @@ namespace Entities.Repository
         /// <summary>
         /// Логгирование объекта по GPS
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="lon1"></param>
-        /// <param name="lat1"></param>
-        /// <param name="signal"></param>
-        /// <param name="date"></param>
+        /// <param name="model.Id"></param>
+        /// <param name="model.Lon1"></param>
+        /// <param name="model.Lat1"></param>
+        /// <param name="model.Signal"></param>
+        /// <param name="model.Date"></param>
         /// <returns></returns>
-        public async Task<ServiceResponseObject<BaseResponseObject>> SetContainerLocation(Guid id, double lon1, double lat1, double signal, DateTime date)
+        public async Task<ServiceResponseObject<BaseResponseObject>> SetContainerLocation(LocationViewModel model)
         {
-            SmartBox box = await _boxContext.SmartBoxes.FirstOrDefaultAsync(s => s.Id == id);
+            SmartBox box = await _boxContext.SmartBoxes.FirstOrDefaultAsync(s => s.Id == model.Id);
             ServiceResponseObject<BaseResponseObject> DataContent = new ServiceResponseObject<BaseResponseObject>();
 
             
@@ -64,10 +64,10 @@ namespace Entities.Repository
                 Location location = new Location
                 {
                     BoxId = box.Id,
-                    Latitude = lat1,
-                    Longitude = lon1,
-                    SignalLevel = signal,
-                    CurrentDate = date,
+                    Latitude = model.Lat1,
+                    Longitude = model.Lon1,
+                    SignalLevel = model.Signal,
+                    CurrentDate = model.Date,
                     Name = box.Name
                 };
 
@@ -100,6 +100,7 @@ namespace Entities.Repository
                     Id = box.Id,
                     BatteryPower = box.BatteryPower,
                     Code = box.Code,
+                    BoxState = box.BoxState,
                     IsOpenedBox = box.IsOpenedBox,
                     IsOpenedDoor = box.IsOpenedDoor,
                     Light = box.Light,
@@ -125,12 +126,12 @@ namespace Entities.Repository
         /// <param name="id"></param>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<ServiceResponseObject<BaseResponseObject>> EditBox(SmartBox model)
+        public async Task<ServiceResponseObject<BaseResponseObject>> EditBox(EditBoxViewModel model)
         {
             ServiceResponseObject<BaseResponseObject> ContentData = new ServiceResponseObject<BaseResponseObject>();
             if (model == null)
             {
-                ContentData.Message = "Не указаны данные для пользователя.";
+                ContentData.Message = "Не указаны данные для контейнера.";
                 ContentData.Status = ResponseResult.Error;
                 return ContentData;
             }
@@ -144,6 +145,8 @@ namespace Entities.Repository
                 return ContentData;
             }
 
+            box.Name = model.Name;
+            box.BoxState = model.BoxState;
             box.BatteryPower = model.BatteryPower;
             box.Code = model.Code;
             box.IsOpenedBox = model.IsOpenedBox;
@@ -218,7 +221,7 @@ namespace Entities.Repository
                 // Получить последние координаты с объекта
                 var lastItem = box.Locations.OrderBy(p => p.CurrentDate).Select(f => new BoxLocation
                 { 
-                    SmartrBoxId = f.BoxId,
+                    SmartBoxId = f.BoxId,
                     Name = f.Name,
                     Latitude = f.Latitude,
                     Longitude = f.Longitude,

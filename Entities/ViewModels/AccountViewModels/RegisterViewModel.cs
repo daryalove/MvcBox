@@ -36,7 +36,7 @@ namespace Entities.ViewModels.AccountViewModels
         [Display(Name = "Подтвердить пароль")]
         public string PasswordConfirm { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Выберите роль")]
         public string RoleName { get; set; }
     }
 }
