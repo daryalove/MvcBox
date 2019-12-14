@@ -95,19 +95,50 @@ namespace Entities.Repository
 
             if (box != null)
             {
-                ContentData.ResponseData = new BoxDataResponse
+                _boxContext.Entry(box)
+            .Collection(c => c.Locations)
+            .Load();
+
+                if (box.Locations == null || box.Locations.Count == 0)
                 {
-                    Id = box.Id,
+                    ContentData.ResponseData = new BoxDataResponse
+                    {
+                        Id = box.Id,
+                        Name = box.Name,
+                        BatteryPower = box.BatteryPower,
+                        Code = box.Code,
+                        BoxState = box.BoxState,
+                        IsOpenedBox = box.IsOpenedBox,
+                        IsOpenedDoor = box.IsOpenedDoor,
+                        Light = box.Light,
+                        Temperature = box.Temperature,
+                        Weight = box.Weight,
+                        Wetness = box.Wetness
+                    };
+                    ContentData.Message = "Данные контейнера получены. Данные о местоположении объекта не найдены.";
+                    ContentData.Status = ResponseResult.OK;
+                    return ContentData;
+                }
+
+                // Получить последние координаты с объекта
+                ContentData.ResponseData = box.Locations.OrderBy(p => p.CurrentDate).Select(f => new BoxDataResponse
+                {
+                    Id = f.BoxId,
+                    Name = f.Name,
+                    Latitude = f.Latitude,
+                    Longitude = f.Longitude,
                     BatteryPower = box.BatteryPower,
-                    Code = box.Code,
-                    BoxState = box.BoxState,
-                    IsOpenedBox = box.IsOpenedBox,
                     IsOpenedDoor = box.IsOpenedDoor,
+                    BoxState = box.BoxState,
+                    Code = box.Code,
+                    IsOpenedBox = box.IsOpenedBox,
                     Light = box.Light,
                     Temperature = box.Temperature,
                     Weight = box.Weight,
                     Wetness = box.Wetness
-                };
+                }
+                ).Last();
+                
                 ContentData.Message = "Данные контейнера получены.";
                 ContentData.Status = ResponseResult.OK;
                 return ContentData;

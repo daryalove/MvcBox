@@ -4,9 +4,9 @@ for details on configuring this project to bundle and minify static web assets. 
 
 
 /* Provide sufficient contrast against white background */
-a {
+/*a {
   color: #0366d6;
-}
+}*/
 
 .btn-primary {
   color: #fff;
@@ -21,6 +21,129 @@ a {
   border-color: #1861ac;
 }
 
+
+/* регистрация / авториация*/
+.auth-container {
+    height: 60em;
+    position: relative;
+}
+
+.auth-box {
+    position: absolute;
+    margin-top: 20px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+}
+
+.card-result-box {
+    
+    margin-top: 30px;
+    margin-left: 80px;
+}
+
+#mapDistance {
+    
+    height: 300px;
+    /*margin-left: -130px;*/
+    margin-top: 30px;
+    background-color: grey;
+}
+
+#errorsPrice {
+    width: 50%;
+}
+
+#errorsOrder {
+    width: 50%;
+}
+
+
+#position01 {
+    margin-left: 28px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.calculator-box {
+    position: absolute;
+    
+    left: 50%;
+    margin-right: -50%;
+    
+}
+
+.auth-box-btn {
+    margin-top: 10px;
+}
+
+.section-header2 h3 {
+    font-size: 30px;
+    color: #283d50;
+    margin-left: 10px;
+    font-weight: 500;
+    position: relative;
+}
+
+.section-header3 h3 {
+    font-size: 28px;
+    color: #283d50;
+}
+
+.section-header h3 {
+    font-size: 36px;
+    color: #283d50;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+}
+
+.section-header-default h5 {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    clear: both;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.controls {
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    height: 29px;
+    margin-left: 17px;
+    margin-top: 10px;
+    outline: none;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 170px;
+}
+
+    .controls:focus {
+        border-color: #4d90fe;
+    }
+
+.title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#mapDistance #infowindow-content {
+    display: inline;
+}
 /* Sticky navigation styles
 -------------------------------------------------- */
 /*ul {
@@ -275,12 +398,150 @@ body {
     /*background: url(~/img/back.jpg);*/
     /*background-color: ivory;*/
 }
-.footer {
-    /*background: #202322;*/
-    text-align: center;
+
+/*.footer {
+    background: #2E3192;
+    color: white;
     position: absolute;
-    bottom: 0;
     width: 100%;
-    height: 30px;
-    line-height: 13px; /* Vertically center the text there */
+    bottom: 0;
+}*/
+    /*Styles for footer*/
+
+
+.bg-violett {
+    background-color: #2E3192;
+}
+
+.navbar{
+    padding: 10px;
+    font-size: 20px;
+}
+
+.carousel-caption{
+    margin-bottom: 50px;
+    width: auto;
+    height: auto;
+}
+
+.carousel-indicators {
+    padding: 10px;
+    border-color: white;
+}
+    .carousel-inner img {
+    height: auto !important;
+    margin: 0 auto;
+    padding:5px;
+    box-shadow: inset 0px 0px 30px 30px rgba(0,0,0,0.9);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    width: auto;
+}
+
+
+
+
+.jumbotron{
+    margin-bottom: 0px;
+}
+#banner {
+    
+    padding: 0px 0;
+    position: relative;
+    
+}
+
+.btn-min-block {
+    min-width: 170px;
+    line-height: 26px;
+}
+
+.btn-clear {
+    color: #FFF;
+    background-color: transparent;
+    border-color: #FFF;
+    margin-right: 15px;
+}
+.main-text {
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+    .btn-clear:hover {
+        color: #000;
+        background-color: #FFF;
+    }
+
+.carousel-caption {
+   
+    font-size: 30px;
+}
+
+.navbar-brand {
+    font-size: 40px;
+    font-family: Fudd;
+}
+
+
+.footer {
+    background: #2E3192;
+    color: white;
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    .links
+
+{
+    ul
+
+{
+    list-style-type: none;
+}
+
+li a {
+    color: white;
+    transition: color .2s;
+    &:hover
+
+{
+    text-decoration: none;
+    color: #4180CB;
+}
+
+}
+}
+
+.about-company {
+    i
+
+{
+    font-size: 25px;
+}
+
+a {
+    color: white;
+    transition: color.2s;
+    &:hover
+
+{
+    color: #4180CB
+}
+
+}
+}
+
+.location {
+    i
+
+{
+    font-size: 18px;
+}
+
+}
+
+.copyright p {
+    border-top: 1px solid rgba(255,255,255,.1);
+}
 }

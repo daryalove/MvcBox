@@ -8,6 +8,7 @@ namespace Entities.ViewModels.ContainerViewModels
     public class BoxDataResponse: BaseResponseObject
     {
         public Guid Id { get; set; }
+        public string Name { get; set; }
         public bool IsOpenedBox { get; set; }
         public ContainerState BoxState { get; set; }
         public bool IsOpenedDoor { get; set; }
@@ -17,5 +18,7 @@ namespace Entities.ViewModels.ContainerViewModels
         public double Temperature { get; set; }
         public double Wetness { get; set; }
         public double BatteryPower { get; set; }
+        public double? Longitude { get; set; }
+        public double? Latitude { get; set; }
     }
 }

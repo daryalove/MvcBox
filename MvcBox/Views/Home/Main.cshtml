@@ -2,6 +2,62 @@
 @{
 
 }
+    <div class="container calculator-box">
+        <div class="form-check">
+            <div class="align-items-center">
+                <img src="~/img/container/ваыпвап.jpg" data-toggle="tooltip" data-placement="top" title="Укажите объявленную стоимость груза для расчета суммы страхования. Услуга «Страхование груза» позволяет компенсировать убытки, связанные с повреждением или утратой груза при наступлении страхового случая." class="img-fluid" alt="">
+                <label class="form-check-label" for="exampleCheck2">
+                    Страхование груза:
+                    <input type="checkbox" id="exampleCheck2" checked />
+                    <span class="default"></span>
+                </label>
+                <label class="form-check-label" for="exampleCheck2">Страхование груза: </label>
+            </div>
+            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+        </div>
+        <hr />
+        <br />
+
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <div class="align-items-center">
+                        <label for="InputValueCarge">Объявленная ценность груза: </label>
+                        <img src="~/img/container/ваыпвап.jpg" data-toggle="tooltip" data-placement="top" title="Cтраховая премия составляет 0,0012-0,0015 или 0,12-0,15% от объявленной ценности груза, и может быть фиксированной для данного перевозчика на все перевозки" class="img-fluid" alt="">
+                    </div>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="InputValueCarge" min="0" required>
+
+                        <div class="input-group-append">
+                            <span class="input-group-text">руб</span>
+                        </div>
+                        <div class="invalid-feedback">
+                            Введите ценность груза.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <div class="align-items-center">
+                        <label for="CustomSelectShipLoad">Способы погрузки: </label>
+                        <img src="~/img/container/ваыпвап.jpg" class="img-fluid" alt="">
+                    </div>
+                    <select class="custom-select" id="CustomSelectShipLoad" name="TypeOfShipLoad" required>
+                        <option value="">Выбор</option>
+                        <option value="1">Ручной способ</option>
+                        <option value="2">Механизированный способ</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Выберите способ перевозки.
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <button id="btnToApply" type="submit" class="btn btn-primary">Оформить заявку</button>
+            <br />
+        </form>
+    </div>
 
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <meta name="generator" content="2018.1.0.386" />

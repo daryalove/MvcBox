@@ -14,7 +14,7 @@
       <publishTime>10/18/2019 14:46:53</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>11/19/2019 11:24:22</publishTime>
+      <publishTime>12/12/2019 18:02:44</publishTime>
     </File>
     <File Include="appsettings.production.json">
       <publishTime>11/04/2019 12:12:52</publishTime>
@@ -47,10 +47,10 @@
       <publishTime>09/20/2019 22:26:20</publishTime>
     </File>
     <File Include="Entities.dll">
-      <publishTime>12/07/2019 10:01:47</publishTime>
+      <publishTime>12/12/2019 16:49:43</publishTime>
     </File>
     <File Include="Entities.pdb">
-      <publishTime>12/07/2019 10:01:47</publishTime>
+      <publishTime>12/12/2019 16:49:43</publishTime>
     </File>
     <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>08/14/2019 23:21:24</publishTime>
@@ -173,25 +173,25 @@
       <publishTime>09/20/2019 22:25:54</publishTime>
     </File>
     <File Include="MvcBox.deps.json">
-      <publishTime>12/08/2019 15:31:17</publishTime>
+      <publishTime>12/12/2019 18:04:58</publishTime>
     </File>
     <File Include="MvcBox.dll">
-      <publishTime>12/08/2019 15:15:45</publishTime>
+      <publishTime>12/12/2019 18:04:28</publishTime>
     </File>
     <File Include="MvcBox.exe">
-      <publishTime>12/08/2019 15:15:45</publishTime>
+      <publishTime>12/12/2019 18:04:28</publishTime>
     </File>
     <File Include="MvcBox.pdb">
-      <publishTime>12/08/2019 15:15:45</publishTime>
+      <publishTime>12/12/2019 18:04:28</publishTime>
     </File>
     <File Include="MvcBox.runtimeconfig.json">
-      <publishTime>12/08/2019 15:16:17</publishTime>
+      <publishTime>12/12/2019 16:50:02</publishTime>
     </File>
     <File Include="MvcBox.Views.dll">
-      <publishTime>12/08/2019 15:16:15</publishTime>
+      <publishTime>12/12/2019 18:04:52</publishTime>
     </File>
     <File Include="MvcBox.Views.pdb">
-      <publishTime>12/08/2019 15:16:15</publishTime>
+      <publishTime>12/12/2019 18:04:52</publishTime>
     </File>
     <File Include="Newtonsoft.Json.dll">
       <publishTime>03/24/2018 17:44:14</publishTime>
@@ -296,7 +296,7 @@
       <publishTime>08/14/2019 23:20:54</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>12/08/2019 15:31:17</publishTime>
+      <publishTime>12/12/2019 18:04:58</publishTime>
     </File>
     <File Include="wwwroot/Auth.html">
       <publishTime>11/29/2019 11:18:54</publishTime>
@@ -356,7 +356,7 @@
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
     <File Include="wwwroot/css/site.css">
-      <publishTime>11/15/2019 01:07:08</publishTime>
+      <publishTime>12/12/2019 16:44:18</publishTime>
     </File>
     <File Include="wwwroot/css/style.css">
       <publishTime>11/05/2019 10:41:16</publishTime>
@@ -427,6 +427,27 @@
     <File Include="wwwroot/fonts/weblysleekuisb.ttf">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/img/1.jpg">
+      <publishTime>12/11/2019 19:40:52</publishTime>
+    </File>
+    <File Include="wwwroot/img/2.jpg">
+      <publishTime>12/11/2019 19:44:36</publishTime>
+    </File>
+    <File Include="wwwroot/img/3.jpg">
+      <publishTime>12/11/2019 19:45:50</publishTime>
+    </File>
+    <File Include="wwwroot/img/4.jpg">
+      <publishTime>12/11/2019 19:46:16</publishTime>
+    </File>
+    <File Include="wwwroot/img/5.jpg">
+      <publishTime>12/11/2019 19:46:36</publishTime>
+    </File>
+    <File Include="wwwroot/img/6.jpg">
+      <publishTime>12/11/2019 19:46:56</publishTime>
+    </File>
+    <File Include="wwwroot/img/7.jpg">
+      <publishTime>12/11/2019 19:47:45</publishTime>
+    </File>
     <File Include="wwwroot/img/avtar6.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
@@ -469,6 +490,9 @@
     <File Include="wwwroot/img/blog/blog-4.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/img/blue.jpg">
+      <publishTime>12/11/2019 02:26:46</publishTime>
+    </File>
     <File Include="wwwroot/img/clientLogo/client-logo1.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
@@ -508,7 +532,13 @@
     <File Include="wwwroot/img/container/konteiner4.png">
       <publishTime>11/18/2019 16:18:56</publishTime>
     </File>
+    <File Include="wwwroot/img/container/log.jpg">
+      <publishTime>12/10/2019 08:26:10</publishTime>
+    </File>
     <File Include="wwwroot/img/container/optovaya_torgovlya_tovarami_v_donecke_dnr_luganske_lnr_donbasse_0.jpg">
+      <publishTime>12/11/2019 02:54:47</publishTime>
+    </File>
+    <File Include="wwwroot/img/container/[Originals]/optovaya_torgovlya_tovarami_v_donecke_dnr_luganske_lnr_donbasse_0.jpg">
       <publishTime>11/18/2019 16:18:56</publishTime>
     </File>
     <File Include="wwwroot/img/container/ваыпвап.jpg">
@@ -604,6 +634,15 @@
     <File Include="wwwroot/img/default/nav-arrows-prev.png">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/img/glav3.jpg">
+      <publishTime>12/11/2019 01:49:16</publishTime>
+    </File>
+    <File Include="wwwroot/img/high-tatras-mountains-panorama-picjumbo-com.jpg">
+      <publishTime>12/11/2019 02:33:35</publishTime>
+    </File>
+    <File Include="wwwroot/img/highway-and-evening-dawn-picjumbo-com.jpg">
+      <publishTime>12/11/2019 02:30:00</publishTime>
+    </File>
     <File Include="wwwroot/img/images/close.png">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
@@ -631,6 +670,15 @@
     <File Include="wwwroot/img/new-latter.jpg">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
+    <File Include="wwwroot/img/rmi-truck-picture.jpg">
+      <publishTime>12/11/2019 02:15:10</publishTime>
+    </File>
+    <File Include="wwwroot/img/road-in-dark-forest-picjumbo-com.jpg">
+      <publishTime>12/11/2019 02:20:19</publishTime>
+    </File>
+    <File Include="wwwroot/img/road.jpg">
+      <publishTime>12/11/2019 02:31:58</publishTime>
+    </File>
     <File Include="wwwroot/img/service-img.png">
       <publishTime>11/20/2018 14:09:02</publishTime>
     </File>
@@ -651,6 +699,9 @@
     </File>
     <File Include="wwwroot/img/top.png">
       <publishTime>11/20/2018 14:09:02</publishTime>
+    </File>
+    <File Include="wwwroot/img/white-tir-truck-in-motion-driving-on-highway-picjumbo-com.jpg">
+      <publishTime>12/11/2019 02:27:29</publishTime>
     </File>
     <File Include="wwwroot/img/work1.jpg">
       <publishTime>10/31/2019 22:50:02</publishTime>
