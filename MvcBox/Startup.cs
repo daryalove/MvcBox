@@ -69,7 +69,7 @@ namespace MvcBox
                 );
         }
 
-        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        private async System.Threading.Tasks.Task CreateUserRoles(IServiceProvider serviceProvider)
         {
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             var UserManager = serviceProvider.GetRequiredService<UserManager<User>>();

@@ -19,6 +19,13 @@ namespace Entities.Models
         }
         public SmartBox()
         {
+            Alarms = new List<Alarm>();
+            OrderHasBoxes = new List<OrderHasBox>();
+            Variables = new List<Variable>();
+            Events = new List<Event>();
+            DriverHasBoxes = new List<DriverHasBox>();
+            Sensors = new List<Sensor>();
+            UserHasAccesses = new List<UserHasAccess>();
             Locations = new HashSet<Location>();
         }
 
@@ -43,6 +50,17 @@ namespace Entities.Models
 
         [Range(0.0, 16.0, ErrorMessage = "Значение уровня заряда батареи должно быть от 0 до 16")]
         public double BatteryPower { get; set; }
+        [MaxLength(45)]
+        public string CloudKey { get; set; }
+        public Guid DriverId { get; set; }
+        public string OwnerId { get; set; }
+        public ICollection<Sensor> Sensors { get; set; }
+        public ICollection<Alarm> Alarms { get; set; }
+        public ICollection<DriverHasBox> DriverHasBoxes { get; set; }
+        public ICollection<Event> Events { get; set; }
+        public ICollection<OrderHasBox> OrderHasBoxes { get; set; }
+        public ICollection<Variable> Variables { get; set; }
+        public ICollection<UserHasAccess> UserHasAccesses { get; set; }
         public ICollection<Location> Locations { get; set; }
     }
 }

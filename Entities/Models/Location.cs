@@ -17,6 +17,7 @@ namespace Entities.Models
         [Range(-110.0, 0.0)]
         public double SignalLevel { get; set; }
         public DateTime CurrentDate { get; set; }
+        
         public Guid BoxId { get; set; }
     }
 }
