@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using Entities.Models;
 using Entities.ViewModels.OrderViewModels;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace MvcBox.ApiService
 {
@@ -20,10 +22,12 @@ namespace MvcBox.ApiService
     public class ContainerController : ControllerBase
     {
         private readonly SmartBoxContext _boxContext;
+        private readonly UserManager<User> _userManager;
 
-        public ContainerController(SmartBoxContext boxContext)
+        public ContainerController(SmartBoxContext boxContext, UserManager<User> userManager)
         {
             _boxContext = boxContext;
+            _userManager = userManager;
         }
 
         [HttpPost]
@@ -32,6 +36,15 @@ namespace MvcBox.ApiService
         {
             ContainerMethods BoxData = new ContainerMethods(_boxContext);
             var Result = await BoxData.Create(name);
+            return Result;
+        }
+
+        [HttpGet]
+        [Route("SearchCommandPhoto")]
+        public async Task<ServiceResponseObject<BaseResponseObject>> SearchCommandPhoto(string name)
+        {
+            ContainerMethods BoxData = new ContainerMethods(_boxContext);
+            var Result = await BoxData.SearchCommandPhoto(name);
             return Result;
         }
 
@@ -101,11 +114,51 @@ namespace MvcBox.ApiService
 
         [HttpGet]
         [Route("GetBox")]
-        public async Task<ServiceResponseObject<BoxDataResponse>> GetBox(Guid id)
+        public async Task<ServiceResponseObject<BoxDataResponse>> GetBox(Guid id, Guid driverId, Guid orderId)
         {
             ContainerMethods BoxData = new ContainerMethods(_boxContext);
             var Result = await BoxData.GetBox(id);
+            if (Result.Status == ResponseResult.OK)
+            {
+                if (SearchDriver(driverId))
+                {
+                    OrderHasBox order = new OrderHasBox
+                    {
+                        BoxId = Result.ResponseData.Id,
+                        IsBusy = true,
+                        OrderId = orderId
+                    };
+
+                    DriverHasBox hasBox = new DriverHasBox
+                    {
+                        BoxId = Result.ResponseData.Id,
+                        DriverId = driverId
+                    };
+                    _boxContext.DriverHasBoxes.Add(hasBox);
+                    _boxContext.OrderHasBoxes.Add(order);
+                    _boxContext.SaveChanges();
+                    Result.Message += " Контейнер привязан.";
+                }
+            }
             return Result;
+        }
+
+        [HttpGet]
+        [Route("GetBoxForUser")]
+        public async Task<ServiceResponseObject<BoxDataResponse>> GetBoxForUser(string userId)
+        {
+            ContainerMethods BoxData = new ContainerMethods(_boxContext);
+            var access = await _boxContext.UserHasAccesses.Where(p => p.UserId == userId).FirstOrDefaultAsync();
+            if (access != null)
+            {
+                var Result = await BoxData.GetBox(access.BoxId);
+                Result.Message += " Оплатите заказ.";
+                return Result;
+            }
+            ServiceResponseObject<BoxDataResponse> response = new ServiceResponseObject<BoxDataResponse>();
+            response.Message = "Нет доступа.";
+            response.Status = ResponseResult.Error;
+            return response;
         }
 
         [HttpGet]
@@ -132,7 +185,7 @@ namespace MvcBox.ApiService
 
             if (ModelState.IsValid)
             {
-                OrderMethods BoxData = new OrderMethods();
+                OrderMethods BoxData = new OrderMethods(_boxContext, _userManager);
                 var price = BoxData.PriceComputation(model);
                 response.Message = "Успешно!";
                 response.ResponseData = new ComputationResponse { Price = price };
@@ -163,6 +216,21 @@ namespace MvcBox.ApiService
             return new string[] { "value1", "value2" };
         }
 
-        
+        private bool SearchDriver(Guid driverId)
+        {
+            try
+            {
+                var driver = _boxContext.Drivers.Find(driverId);
+                if (driver == null)
+                    return false;
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

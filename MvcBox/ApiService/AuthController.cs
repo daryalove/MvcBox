@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Entities.Context;
 
 namespace MvcBox.ApiService
 {
@@ -21,12 +22,14 @@ namespace MvcBox.ApiService
         UserManager<User> _userManager;
         SignInManager<User> _signInManager;
         RoleManager<IdentityRole> _roleManager;
+        private readonly SmartBoxContext _boxContext;
 
-        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
+        public AuthController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, SmartBoxContext boxContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _boxContext = boxContext;
         }
 
         //Получение сформированного ответа регистрации: "успешно" или описание ошибки...
@@ -38,7 +41,7 @@ namespace MvcBox.ApiService
         {
             if (ModelState.IsValid)
             {
-                AuthMethods AuthData = new AuthMethods(_userManager, _signInManager, _roleManager);
+                AuthMethods AuthData = new AuthMethods(_userManager, _signInManager, _roleManager, _boxContext);
                 var Result = await AuthData.Register(model);
                 return Result;
             }
@@ -68,7 +71,7 @@ namespace MvcBox.ApiService
         {
             if (ModelState.IsValid)
             {
-                AuthMethods AuthData = new AuthMethods(_userManager, _signInManager, _roleManager);
+                AuthMethods AuthData = new AuthMethods(_userManager, _signInManager, _roleManager, _boxContext);
                 var Result = await AuthData.Login(model);
                 return Result;
             }

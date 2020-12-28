@@ -27,13 +27,33 @@ namespace Entities.Repository
         public async Task<ServiceResponseObject<ContainerResponse>> Create(string name)
         {
             ServiceResponseObject<ContainerResponse> DataContent = new ServiceResponseObject<ContainerResponse>();
-            var box = new SmartBox
+
+            var box = _boxContext.SmartBoxes.Where(s => s.Name == name).FirstOrDefault();
+            if (box != null)
             {
-                Name = name
+                box.CloudKey = "1";
+                _boxContext.Update(box);
+                await _boxContext.SaveChangesAsync();
+
+                DataContent.Status = ResponseResult.OK;
+                DataContent.Message = "Объект найден!";
+                DataContent.ResponseData = new ContainerResponse
+                {
+                    SmartBoxId = box.Id,
+                    Name = box.Name
+                };
+                return DataContent;
+            }
+
+            box = new SmartBox
+            {
+                Name = name,
+                CloudKey = "1"
             };
 
             var result = await _boxContext.SmartBoxes.AddAsync(box);
             _boxContext.SaveChanges();
+
             DataContent.Status = ResponseResult.OK;
             DataContent.Message = "Объект успешно добавлен!";
             DataContent.ResponseData = new ContainerResponse
@@ -41,6 +61,33 @@ namespace Entities.Repository
                 SmartBoxId = box.Id,
                 Name = box.Name
             };
+            return DataContent;
+        }
+
+        /// <summary>
+        /// Поиск записи в БД о наличии запроса на фото
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public async Task<ServiceResponseObject<BaseResponseObject>> SearchCommandPhoto(string name)
+        {
+            ServiceResponseObject<BaseResponseObject> DataContent = new ServiceResponseObject<BaseResponseObject>();
+
+            var box = _boxContext.SmartBoxes.Where(s => s.Name == name && s.CloudKey == "1").FirstOrDefault();
+            if (box != null)
+            {
+                box.CloudKey = "0";
+                _boxContext.Update(box);
+                await _boxContext.SaveChangesAsync();
+
+                DataContent.Status = ResponseResult.OK;
+                DataContent.Message = "Запрос от клиента на получение фото.";
+                return DataContent;
+            }
+
+            
+            DataContent.Status = ResponseResult.Error;
+            DataContent.Message = "Запросов нет.";
             return DataContent;
         }
 
@@ -200,7 +247,7 @@ namespace Entities.Repository
        /// <returns></returns>
         public async Task<ServiceResponseObject<ListResponse<ContainerResponse>>> GetBoxesByName(string name)
         {
-            var boxes = await _boxContext.SmartBoxes.Where(b => b.Name.ToLower().StartsWith(name.ToLower())).OrderBy(b => b.Name).Take(20).Select(b => new ContainerResponse
+            var boxes = await _boxContext.SmartBoxes.Where(b => b.Name.ToLower().StartsWith(name.ToLower()) && b.BoxState == SmartBox.ContainerState.onBase).OrderBy(b => b.Name).Take(20).Select(b => new ContainerResponse
             {
                 Name = b.Name,
                 SmartBoxId = b.Id

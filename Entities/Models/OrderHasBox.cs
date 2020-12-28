@@ -8,6 +8,7 @@ namespace Entities.Models
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public Guid BoxId { get; set; }
+        public Guid OrderId { get; set; }
         public bool IsBusy { get; set; }
     }
 }

@@ -1,10 +1,12 @@
-﻿using Entities.Models;
+﻿using Entities.Context;
+using Entities.Models;
 using Entities.ViewModels;
 using Entities.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,13 +17,15 @@ namespace Entities.Repository
         UserManager<User> _userManager;
         SignInManager<User> _signInManager;
         RoleManager<IdentityRole> _roleManager;
+        private readonly SmartBoxContext _boxContext;
 
 
-        public AuthMethods(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
+        public AuthMethods(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, SmartBoxContext boxContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _boxContext = boxContext;
         }
 
         /// <summary>
@@ -64,6 +68,7 @@ namespace Entities.Repository
                 //Установка куки
                 await _signInManager.SignInAsync(user, false);
                 await _userManager.AddToRoleAsync(user, model.RoleName);
+
                 DataContent.ResponseData = new AuthResponse()
                 {
                     UserId = user.Id,
@@ -72,6 +77,23 @@ namespace Entities.Repository
                     LastName = model.LastName,
                     Role = model.RoleName
                 };
+
+                var rand = new Random();
+                if (userRole.Name == "driver")
+                {
+                    Driver driver = new Driver
+                    {
+                        AccountId = user.Id,
+                        Number = rand.Next(100000, 999999).ToString(),
+                        IsBusy = false,
+                        BoxState = 1
+                    };
+                    await _boxContext.Drivers.AddAsync(driver);
+                    _boxContext.SaveChanges();
+
+                    DataContent.ResponseData.DriverId = driver.Id;
+                }
+
                 DataContent.Message = "Успешно!";
                 DataContent.Status = ResponseResult.OK;
                 return DataContent;
@@ -112,6 +134,13 @@ namespace Entities.Repository
                         LastName = user.LastName,
                         Role = roles[0]
                     };
+
+                    if (roles[0] == "driver")
+                    {
+                        var driver = await _boxContext.Drivers.Where(p => p.AccountId == user.Id).FirstOrDefaultAsync();
+                        DataContent.ResponseData.DriverId = driver.Id;
+                    }
+                    
                     DataContent.Message = "Авторизация прошла успешно!";
                     DataContent.Status = ResponseResult.OK;
                     return DataContent;

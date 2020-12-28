@@ -48,6 +48,11 @@ namespace Entities.Context
                 .WithOne().HasForeignKey(p => p.BoxId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Order>()
+                .HasMany(f => f.OrderHasBoxes)
+                .WithOne().HasForeignKey(p => p.OrderId)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<AlarmType>()
                 .HasMany(c => c.Alarms)
                 .WithOne().HasForeignKey(p => p.AlarmTypeId)
@@ -128,10 +133,17 @@ namespace Entities.Context
                 .WithOne().HasForeignKey(p => p.BoxId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<SmartBox>()
+                .HasMany(c => c.OrderHasBoxes)
+                .WithOne().HasForeignKey(p => p.BoxId)
+                .OnDelete(DeleteBehavior.NoAction);
+
             modelBuilder.Entity<Order>()
                 .HasMany(c => c.UserHasOrders)
                 .WithOne().HasForeignKey(p => p.OrderId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            
 
             modelBuilder.Entity<VariableGroup>()
                 .HasMany(c => c.Variables)
@@ -153,8 +165,10 @@ namespace Entities.Context
                 .WithOne().HasForeignKey(p => p.VariableId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            //modelBuilder.Entity<UserBadge>().HasKey(p => new { p.UserId });
-
+            modelBuilder.Entity<DriverHasBox>().HasKey(p => new { p.BoxId, p.DriverId });
+            modelBuilder.Entity<UserHasOrder>().HasKey(p => new { p.OrderId, p.UserId });
+            modelBuilder.Entity<OrderStageLog>().HasKey(p => new { p.OrderId, p.OrderStageId });
+            modelBuilder.Entity<UserHasAccess>().HasKey(p => new { p.BoxId, p.UserId });
         }
     }
 }

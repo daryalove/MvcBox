@@ -23,6 +23,7 @@ namespace Entities.Models
         public string AbortedBy { get; set; }
         public DateTime AbortedAt { get; set; }
         public DateTime DoneAt { get; set; }
+        public bool IsCompleted { get; set; }
         [MaxLength(45)]
         public string TaskType { get; set; }
 
